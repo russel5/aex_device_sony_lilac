@@ -31,14 +31,14 @@ How to build AEX
             <project name="russel5/aex_device_sony_lilac" path="device/sony/lilac" remote="github" revision="10.x" />
 
             <!-- Pinned blobs for lilac -->
-            <project name="cryptomilk/android_vendor_sony_lilac" path="vendor/sony/lilac" remote="github" revision="lineage-17.1" />
+            <project name="russel5/aex_vendor_sony_lilac" path="vendor/sony/lilac" remote="github" revision="10.x" />
         </manifest>
 
 * Sync the repo:
 
         repo sync
 
-* Extract vendor blobs
+* Extract vendor blobs (this step not needed if you are take a blobs from my repo)
 
         cd device/sony/lilac
         ./extract-files.sh
