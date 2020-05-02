@@ -9,14 +9,10 @@ $(call inherit-product, device/sony/lilac/device.mk)
 $(call inherit-product, $(SRC_TARGET_DIR)/product/product_launched_with_o.mk)
 
 ### BOOTANIMATION
-# vendor/lineage/config/common_full_phone.mk
-TARGET_SCREEN_HEIGHT := 1280
-TARGET_SCREEN_WIDTH := 720
-# vendor/lineage/config/common.mk
-TARGET_BOOTANIMATION_HALF_RES := true
+TARGET_BOOT_ANIMATION_RES := 720
 
 ### LINEAGE
-$(call inherit-product, vendor/lineage/config/common_full_phone.mk)
+$(call inherit-product, vendor/aosp/common.mk)
 
 ## Device identifier. This must come after all inclusions
 PRODUCT_NAME := aosp_lilac
