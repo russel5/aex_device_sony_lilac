@@ -4,19 +4,19 @@ Device configuration for Sony Xperia XZ1 Compact (lilac)
 Description
 -----------
 
-This repository is for LineageOS 17.1 on Sony Xperia XZ1 Compact (lilac).
+This repository is for AEX 10.x on Sony Xperia XZ1 Compact (lilac).
 
-How to build LineageOS
+How to build AEX
 ----------------------
 
 * Make a workspace:
 
-        mkdir -p ~/lineageos/repo
-        cd ~/lineageos/repo
+        mkdir -p ~/aex/repo
+        cd ~/aex/repo
 
 * Initialize the repo:
 
-        repo init -u git://github.com/LineageOS/android.git -b lineage-17.1
+        repo init -u git://github.com/AospExtended/manifest.git -b 10.x
 
 * Create a local manifest:
 
@@ -26,9 +26,9 @@ How to build LineageOS
         <manifest>
             <!-- SONY -->
             <project name="cryptomilk/android_kernel_sony_msm8998" path="kernel/sony/msm8998" remote="github" revision="lineage-17.1" />
-            <project name="cryptomilk/android_device_sony_common-treble" path="device/sony/common-treble" remote="github" revision="lineage-17.1" />
-            <project name="cryptomilk/android_device_sony_yoshino" path="device/sony/yoshino" remote="github" revision="lineage-17.1" />
-            <project name="cryptomilk/android_device_sony_lilac" path="device/sony/lilac" remote="github" revision="lineage-17.1" />
+            <project name="russel5/aex_device_sony_common-treble" path="device/sony/common-treble" remote="github" revision="10.x" />
+            <project name="russel5/aex_device_sony_yoshino" path="device/sony/yoshino" remote="github" revision="10.x" />
+            <project name="russel5/aex_device_sony_lilac" path="device/sony/lilac" remote="github" revision="10.x" />
 
             <!-- Pinned blobs for lilac -->
             <project name="cryptomilk/android_vendor_sony_lilac" path="vendor/sony/lilac" remote="github" revision="lineage-17.1" />
@@ -46,8 +46,8 @@ How to build LineageOS
 * Setup the environment
 
         source build/envsetup.sh
-        lunch lineage_lilac-userdebug
+        lunch aosp_lilac-userdebug
 
-* Build LineageOS
+* Build AEX
 
-        make -j8 bacon
+        make -j4 aex
