@@ -11,7 +11,7 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/product_launched_with_o.mk)
 ### BOOTANIMATION
 TARGET_BOOT_ANIMATION_RES := 720
 
-### LINEAGE
+### AEX
 TARGET_ARCH := arm64
 ART_BUILD_TARGET_DEBUG := false
 ART_BUILD_HOST_NDEBUG := false
