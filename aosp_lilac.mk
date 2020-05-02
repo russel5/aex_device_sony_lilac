@@ -12,6 +12,18 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/product_launched_with_o.mk)
 TARGET_BOOT_ANIMATION_RES := 720
 
 ### LINEAGE
+TARGET_ARCH := arm64
+ART_BUILD_TARGET_DEBUG := false
+ART_BUILD_HOST_NDEBUG := false
+ART_BUILD_HOST_DEBUG := false
+WITH_DEXPREOPT_DEBUG_INFO := false
+PRODUCT_SYSTEM_SERVER_DEBUG_INFO := false
+PRODUCT_OTHER_JAVA_DEBUG_INFO := false
+USE_DEX2OAT_DEBUG := false
+WITH_GAPPS := true
+TARGET_GAPPS_ARCH := arm64
+IS_PHONE := true
+TARGET_INCLUDE_STOCK_ARCORE := true
 $(call inherit-product, vendor/aosp/common.mk)
 
 ## Device identifier. This must come after all inclusions
