@@ -25,7 +25,7 @@ How to build AEX
         <?xml version="1.0" encoding="UTF-8"?>
         <manifest>
             <!-- SONY -->
-            <project name="cryptomilk/android_kernel_sony_msm8998" path="kernel/sony/msm8998" remote="github" revision="lineage-17.1" />
+            <project name="russel5/aex_kernel_sony_msm8998" path="kernel/sony/msm8998" remote="github" revision="10.x" />
             <project name="russel5/aex_device_sony_common-treble" path="device/sony/common-treble" remote="github" revision="10.x" />
             <project name="russel5/aex_device_sony_yoshino" path="device/sony/yoshino" remote="github" revision="10.x" />
             <project name="russel5/aex_device_sony_lilac" path="device/sony/lilac" remote="github" revision="10.x" />
