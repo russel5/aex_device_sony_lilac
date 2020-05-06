@@ -48,6 +48,11 @@ How to build AEX
         source build/envsetup.sh
         lunch aosp_lilac-userdebug
 
+* Apply a patch (make camera key working. patch will be update, now it works at 06.05.2020)
+
+		cp camerakey.patch frameworks/base/services/core/java/com/android/server/policy		
+		patch -p1 < camerakey.patch
+
 * Build AEX
 
         make -j4 aex
