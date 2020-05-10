@@ -50,9 +50,9 @@ How to build AEX
 
 * Apply a patch (make camera key working. patch will be update, now it works at 06.05.2020)
 
-		cp camerakey.patch ../../../frameworks/base/services/core/java/com/android/server/policy	
-		cd ../../../frameworks/base/services/core/java/com/android/server/policy
-		patch -p1 < camerakey.patch
+		cp camerakey.patch ../../../frameworks/base	
+		cd ../../../frameworks/base
+		git apply camerakey.patch
 
 * Build AEX
 

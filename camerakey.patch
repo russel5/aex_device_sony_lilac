@@ -1,8 +1,20 @@
-diff --git a/PhoneWindowManager.java b/PhoneWindowManager.java
-index 6452d3f..473a307 100644
---- a/PhoneWindowManager.java
-+++ b/PhoneWindowManager.java
-@@ -461,6 +461,7 @@ public class PhoneWindowManager implements WindowManagerPolicy {
+diff --git a/core/java/android/view/KeyEvent.java b/core/java/android/view/KeyEvent.java
+index 87dd5b47c44..8a12fcbbf8f 100644
+--- a/core/java/android/view/KeyEvent.java
++++ b/core/java/android/view/KeyEvent.java
+@@ -1935,6 +1935,7 @@ public class KeyEvent extends InputEvent implements Parcelable {
+         switch (keyCode) {
+             case KeyEvent.KEYCODE_BACK:
+             case KeyEvent.KEYCODE_MENU:
++            case KeyEvent.KEYCODE_CAMERA:
+             case KeyEvent.KEYCODE_WAKEUP:
+             case KeyEvent.KEYCODE_PAIRING:
+             case KeyEvent.KEYCODE_STEM_1:
+diff --git a/services/core/java/com/android/server/policy/PhoneWindowManager.java b/services/core/java/com/android/server/policy/PhoneWindowManager.java
+index bb85c361423..f1a081e8a19 100644
+--- a/services/core/java/com/android/server/policy/PhoneWindowManager.java
++++ b/services/core/java/com/android/server/policy/PhoneWindowManager.java
+@@ -465,6 +465,7 @@ public class PhoneWindowManager implements WindowManagerPolicy {
      // to hold wakelocks during dispatch and eliminating the critical path.
      volatile boolean mPowerKeyHandled;
      volatile boolean mBackKeyHandled;
@@ -10,7 +22,7 @@ index 6452d3f..473a307 100644
      volatile boolean mBeganFromNonInteractive;
      volatile int mPowerKeyPressCounter;
      volatile boolean mEndCallKeyHandled;
-@@ -682,6 +683,7 @@ public class PhoneWindowManager implements WindowManagerPolicy {
+@@ -709,6 +710,7 @@ public class PhoneWindowManager implements WindowManagerPolicy {
      private SwipeToScreenshotListener mSwipeToScreenshot;
      private static final int MSG_TOGGLE_TORCH = 30;
      private static final int MSG_DISPATCH_VOLKEY_WITH_WAKE_LOCK = 29;
@@ -18,7 +30,7 @@ index 6452d3f..473a307 100644
  
      private class PolicyHandler extends Handler {
          @Override
-@@ -771,6 +773,9 @@ public class PhoneWindowManager implements WindowManagerPolicy {
+@@ -798,6 +800,9 @@ public class PhoneWindowManager implements WindowManagerPolicy {
                  case MSG_RINGER_TOGGLE_CHORD:
                      handleRingerChordGesture();
                      break;
@@ -28,7 +40,7 @@ index 6452d3f..473a307 100644
                  case MSG_MOVE_DISPLAY_TO_TOP:
                      mWindowManagerFuncs.moveDisplayToTop(msg.arg1);
                      mMovingDisplayToTopKeyTriggered = false;
-@@ -919,6 +924,23 @@ public class PhoneWindowManager implements WindowManagerPolicy {
+@@ -946,6 +951,23 @@ public class PhoneWindowManager implements WindowManagerPolicy {
          mLogger.action(MetricsProto.MetricsEvent.ACTION_HUSH_GESTURE, mRingerToggleChord);
      }
  
@@ -52,7 +64,7 @@ index 6452d3f..473a307 100644
      IStatusBarService getStatusBarService() {
          synchronized (mServiceAquireLock) {
              if (mStatusBarService == null) {
-@@ -1198,6 +1220,13 @@ public class PhoneWindowManager implements WindowManagerPolicy {
+@@ -1236,6 +1258,13 @@ public class PhoneWindowManager implements WindowManagerPolicy {
          }
      }
  
@@ -66,7 +78,7 @@ index 6452d3f..473a307 100644
      private void powerPress(long eventTime, boolean interactive, int count) {
          if (!isDozeMode() && mDefaultDisplayPolicy.isScreenOnEarly() && !mDefaultDisplayPolicy.isScreenOnFully()) {
              Slog.i(TAG, "Suppressed redundant power key press while "
-@@ -1424,6 +1453,27 @@ public class PhoneWindowManager implements WindowManagerPolicy {
+@@ -1469,6 +1498,27 @@ public class PhoneWindowManager implements WindowManagerPolicy {
          }
      }
  
@@ -94,7 +106,7 @@ index 6452d3f..473a307 100644
      private void accessibilityShortcutActivated() {
          mAccessibilityShortcutController.performAccessibilityShortcut();
      }
-@@ -4365,6 +4415,18 @@ public class PhoneWindowManager implements WindowManagerPolicy {
+@@ -4432,6 +4482,18 @@ public class PhoneWindowManager implements WindowManagerPolicy {
                  }
                  break;
              }
@@ -113,7 +125,7 @@ index 6452d3f..473a307 100644
          }
  
          // Intercept the Accessibility keychord for TV (DPAD_DOWN + Back) before the keyevent is
-@@ -4494,7 +4556,6 @@ public class PhoneWindowManager implements WindowManagerPolicy {
+@@ -4561,7 +4623,6 @@ public class PhoneWindowManager implements WindowManagerPolicy {
              case KeyEvent.KEYCODE_MEDIA_RECORD:
              case KeyEvent.KEYCODE_MEDIA_FAST_FORWARD:
              case KeyEvent.KEYCODE_MEDIA_AUDIO_TRACK:
