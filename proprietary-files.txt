@@ -409,19 +409,19 @@ etc/customization/modem/amss_fsg_lilac_vodafone_uk_volte_vowifi_tar.mbn
 etc/customization/modem/amss_fsg_lilac_wind_canada_tar.mbn
 
 # LOCATION
--priv-app/com.qualcomm.location/com.qualcomm.location.apk
-etc/permissions/com.qti.location.sdk.xml
-etc/permissions/com.qualcomm.location.xml
-etc/permissions/izat.xt.srv.xml
-etc/permissions/privapp-permissions-com.qualcomm.location.xml
-framework/com.qti.location.sdk.jar
-framework/izat.xt.srv.jar
-lib/liblocationservice_jni.so
+-priv-app/com.qualcomm.location/com.qualcomm.location.apk|1fe647acf7b236e81c4b25001520fc0973cb73fc
+etc/permissions/com.qti.location.sdk.xml|cb68a566bd77dcc75bb7547199d528289fac01cb
+etc/permissions/com.qualcomm.location.xml|1d36e7cf8e16813aa13ee6b3fca8d8687b543828
+etc/permissions/izat.xt.srv.xml|a0f460056f27b5495a4d6e959eecf0e429c42a57
+etc/permissions/privapp-permissions-com.qualcomm.location.xml|2dc7fba818bdf582bfea849a74f4b312d90745c9
+framework/com.qti.location.sdk.jar|5dcbf27bd7709a111985e9660b5b61b5fb7a22b1
+framework/izat.xt.srv.jar|5d48ba7a65ca6f62afd3e0dc886f590e2ad18bc3
+lib/liblocationservice_jni.so|66d04c9510332edf3020fb52830d06bb479b4f86
 lib/libxt_native.so
-lib64/liblocationservice_jni.so
+lib64/liblocationservice_jni.so|bc1b453b250340b8dfd762bcfff8d13fc0152f01
 lib64/libxt_native.so
-product/lib/vendor.qti.gnss@3.0.so
-product/lib64/vendor.qti.gnss@3.0.so
+product/lib/vendor.qti.gnss@3.0.so|d986366926490b1aa0dc13e4200a443ef94cb810
+product/lib64/vendor.qti.gnss@3.0.so|371036b56f22bd4e5262cfa01bb50b6b30a67041
 
 # MSS
 bin/mssconfig
