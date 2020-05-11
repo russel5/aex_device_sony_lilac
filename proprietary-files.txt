@@ -409,15 +409,19 @@ etc/customization/modem/amss_fsg_lilac_vodafone_uk_volte_vowifi_tar.mbn
 etc/customization/modem/amss_fsg_lilac_wind_canada_tar.mbn
 
 # LOCATION
+-priv-app/com.qualcomm.location/com.qualcomm.location.apk
 etc/permissions/com.qti.location.sdk.xml
 etc/permissions/com.qualcomm.location.xml
 etc/permissions/izat.xt.srv.xml
+etc/permissions/privapp-permissions-com.qualcomm.location.xml
 framework/com.qti.location.sdk.jar
 framework/izat.xt.srv.jar
 lib/liblocationservice_jni.so
 lib/libxt_native.so
 lib64/liblocationservice_jni.so
 lib64/libxt_native.so
+product/lib/vendor.qti.gnss@3.0.so
+product/lib64/vendor.qti.gnss@3.0.so
 
 # MSS
 bin/mssconfig
