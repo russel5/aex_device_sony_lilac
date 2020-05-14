@@ -39,8 +39,11 @@
         <int name="recipientLimit" value="50" />
         <int name="smsToMmsTextThreshold" value="20" />
         <boolean name="carrier_default_wfc_ims_roaming_enabled_bool" value="true" />
-        <string name="gps.supl_host">supl.google.com</string>
+        <string name="gps.ntp_server">1.android.pool.ntp.org</string>
+        <string name="gps.supl_host">supl.sonyericsson.com</string>
+        <string name="gps.supl_port">7275</string>
         <string name="gps.supl_mode">1</string>
+        <string name="gps.supl_ver">0x20000</string>
         <string name="gps.lpp_profile">2</string>
         <string name="gps.use_emergency_pdn_for_emergency_supl">0</string>
         <string name="gps.a_glonass_pos_protocol_select">2</string>
@@ -111,7 +114,7 @@
     <carrier_config>
         <boolean name="support_direct_fdn_dialing_bool" value="true" />
         <boolean name="world_mode_enabled_bool" value="false" />
-        <string name="gps.supl_es">0</string>
+        <string name="gps.supl_es">1</string>
         <string name="gps.nfw_proxy_apps">com.qualcomm.location</string>
         <boolean name="show_wfc_location_privacy_policy_bool" value="true" />
         <boolean name="show_blocking_pay_phone_option_bool" value="true" />
