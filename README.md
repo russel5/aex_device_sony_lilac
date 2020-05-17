@@ -4,19 +4,19 @@ Device configuration for Sony Xperia XZ1 Compact (lilac)
 Description
 -----------
 
-This repository is for LineageOS 15.1 on Sony Xperia XZ1 Compact (lilac).
+This repository is for AEX 9.x on Sony Xperia XZ1 Compact (lilac).
 
-How to build LineageOS
+How to build AEX
 ----------------------
 
 * Make a workspace:
 
-        mkdir -p ~/lineageos/repo
-        cd ~/lineageos/repo
+        mkdir -p ~/aex/repo
+        cd ~/aex/repo
 
 * Initialize the repo:
 
-        repo init -u git://github.com/LineageOS/android.git -b lineage-15.1
+        repo init -u git://github.com/AospExtended/manifest.git -b 9.x
 
 * Create a local manifest:
 
@@ -25,20 +25,20 @@ How to build LineageOS
         <?xml version="1.0" encoding="UTF-8"?>
         <manifest>
             <!-- SONY -->
-            <project name="cryptomilk/android_kernel_sony_msm8998" path="kernel/sony/msm8998" remote="github" />
-            <project name="cryptomilk/android_device_sony_common-treble" path="device/sony/common-treble" remote="github" />
-            <project name="cryptomilk/android_device_sony_yoshino" path="device/sony/yoshino" remote="github" />
-            <project name="cryptomilk/android_device_sony_lilac" path="device/sony/lilac" remote="github" />
+            <project name="russel5/aex_kernel_sony_msm8998" path="kernel/sony/msm8998" remote="github" revision="9.x" />
+            <project name="russel5/aex_device_sony_common-treble" path="device/sony/common-treble" remote="github" revision="9.x" />
+            <project name="russel5/aex_device_sony_yoshino" path="device/sony/yoshino" remote="github" revision="9.x" />
+            <project name="russel5/aex_device_sony_lilac" path="device/sony/lilac" remote="github" revision="9.x" />
 
             <!-- Pinned blobs for lilac -->
-            <project name="cryptomilk/android_vendor_sony_lilac" path="vendor/sony/lilac" remote="github" />
+            <project name="russel5/aex_vendor_sony_lilac" path="vendor/sony/lilac" remote="github" revision="9.x" />
         </manifest>
 
 * Sync the repo:
 
         repo sync
 
-* Extract vendor blobs
+* Extract vendor blobs (this step not needed if you are take a blobs from my repo)
 
         cd device/sony/lilac
         ./extract-files.sh
@@ -46,8 +46,15 @@ How to build LineageOS
 * Setup the environment
 
         source build/envsetup.sh
-        lunch lineage_lilac-userdebug
+        lunch aosp_lilac-userdebug
 
-* Build LineageOS
+* Apply a patch (make camera key working. patch will be update, now it works at 06.05.2020)
 
-        make -j8 bacon
+		cp camerakey.patch ../../../frameworks/base	
+		cd ../../../frameworks/base
+		git apply camerakey.patch
+
+* Build AEX
+
+        make -j4 aex
+
